@@ -1,0 +1,101 @@
+
+
+<div class="container" ng-controller="TrafiklabDistanceController">
+<!--<div class="container" ng-init="initiateApp(); ng-init="initiateLeaflet(); " ng-controller="AptsController">-->
+	<div class="page-header" id="banner">
+		<div class ="row">
+			<h1 id='top_header'>Get Apartments data</h1>
+			<!--<form method="get" ng-click='getTrafik();'>
+				<button class="btn btn-primary btn-large" type="submit">Get Departures</button>
+			</form>-->
+			<div class="col-md-6">
+				<div class="col-md-6">
+					<form class="col-md-2" method="get" ng-click='getRealtimeTraffic();'>
+						<button class="btn btn-primary btn-large" type="submit">Get bus data</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<h2> Position Variables</h2>
+				<table class="table table-striped">
+					<tr class="tableHeader">
+						<th class="col-md-1">Position</th>
+						<th class="col-md-1">avg-time</th>
+						<th class="col-md-1">avg-walk-distance</th>
+						<th class="col-md-1">departures-per-hour</th>
+						<!-- <th class="col-md-1">numChanges</th>
+						<th class="col-md-1">travelMethods</th> -->
+						<!-- <th class="col-md-3">subTrips</th> -->
+					</tr>
+
+					<tr ng-repeat="variableRow in positionVariables">
+						<td> {{variableRow.position}}</td>
+						<td> {{variableRow.avgTime}} min</td>
+						<td> {{variableRow.avgWalkingDistance}} m</td>
+						<td> {{variableRow.departuresPerHour}}</td>
+						<!-- <td> {{trip.numChanges}}</td>
+						<td> {{trip.travelMethods}} </td>  -->
+					</tr>
+				</table>
+			</div>
+
+
+			<div class="col-md-12">
+				<h2> Trips</h2>
+				<table class="table table-striped">
+					<tr class="tableHeader">
+						<th class="col-md-1">duration</th>
+						<th class="col-md-1">totWalkDist</th>
+						<th class="col-md-1">numChanges</th>
+						<th class="col-md-1">travelMethods</th>
+						<!-- <th class="col-md-3">subTrips</th> -->
+					</tr>
+
+					<tr ng-repeat="trip in Trips">
+						<td> {{trip.duration}}</td>
+						<td> {{trip.totWalkDist}}</td>
+						<td> {{trip.numChanges}}</td>
+						<td> {{trip.travelMethods}} </td> 
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-12">
+				<h2> Subtrips</h2>
+				<table class="table table-striped">
+					<tr class="tableHeader">
+						<th class="col-md-1">nr</th>
+						<th class="col-md-1">type</th>
+						<th class="col-md-3">name</th>
+						<th class="col-md-1">WalkDist</th>
+						<th class="col-md-1">line</th>
+						<th class="col-md-1">ordTime</th>
+						<th class="col-md-1">destTime</th>
+						<th class="col-md-2">oriName</th>
+						<th class="col-md-2">destName</th>
+						
+						<th class="col-md-2">Duration</th>
+					</tr>
+
+					<tr ng-repeat="subTrip in subTrips">
+						<td> {{subTrip.nr}}</td>
+						<td> {{subTrip.type}}</td>
+						<td> {{subTrip.name}}</td>
+						<td> {{subTrip.walkDist}}</td>
+						<td> {{subTrip.line}}</td>
+						<td> {{subTrip.oriTime.getHours() + ':' + subTrip.oriTime.getMinutes() }}</td>
+						<td> {{subTrip.destTime.getHours() + ':' + subTrip.destTime.getMinutes() }}</td>
+						<td> {{subTrip.oriName}}</td>
+						<td> {{subTrip.destName}}</td>
+						<td> {{subTrip.duration}}</td>
+					</tr>
+				</table>
+			</div>
+
+					
+
+			
+		</div>
+	</div>
+	
+</div>
+
